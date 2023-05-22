@@ -16,6 +16,8 @@ int hall_C_state = 0;
 int hall_overall_state = 0;
 
 extern int sensor_throttle;
+extern float throttle_percent;
+
 int pwm = 0;
 
 int direction = 1; //1: Forward, 0: Reverse
@@ -97,7 +99,7 @@ void changePhase() {
 
 void readThrottle() {
   
-  pwm = map(sensor_throttle, 0, 100, 0, 240);
+  pwm = map(throttle_percent, 0, 100, 0, 240);
   
   if (pwm < 10)
     pwm = 0;
